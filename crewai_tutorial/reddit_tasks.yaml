@@ -1,0 +1,31 @@
+scrape_task:
+  description: >
+    Conduct a thorough research on the basis of discussion happening in reddit topic {subreddit_name}
+    Make sure you find any interesting and relevant information given the current year is 2025.
+  expected_output: >
+    A list with 4 bullet points of the most relevant insights from reddit posts about {subreddit_name}
+  agent: scrapper
+  
+search_task:  
+  description: >
+    Conduct a thorough research on the basis of discussions happening in reddit topic {subreddit_name} 
+    related to {topic_name}.
+  expected_output: >
+    A list with bullet points of the most relevant insights from reddit posts about {subreddit_name} 
+    related to {topic_name}. Along with insights, return relevant metadata for each topic so that we can generate report.
+  agent: search_agent
+  
+
+reporting_task:
+  description: >
+    Analyze the context provided and categorize the posts into distinct categories based on the discussion.
+    Create a concise and actionable report with a table summarizing the categories and a detailed description of each category.
+    Ensure the report emphasizes key patterns and actionable insights.
+  expected_output: >
+    A concise, well-structured report formatted in markdown without '```'. Do not use date in title or anywhere else.
+    If possible, The report should include:
+    A table summarizing the categories of posts.
+    Descriptions for each category, highlighting key patterns, trends, and actionable insights.
+    If possible, add another column with statistics about each topic.
+    You can generate a report in any other format that can highlight insights from the report.
+  agent: reporting_analyst
